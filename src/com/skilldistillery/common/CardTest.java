@@ -1,7 +1,9 @@
 package com.skilldistillery.common;
 
+import com.skilldistillery.blackjack.DealingTable;
+
 public class CardTest {
-  public static void main(String[] args) {
+	public static void main(String[] args) {
 //    Rank[] ranks = Rank.values();
 //    for(int i=0; i<ranks.length; i++) {
 //      System.out.println(ranks[i] + " " + ranks[i].getValue());
@@ -11,20 +13,6 @@ public class CardTest {
 //      System.out.println(s);
 //    }
 //  }
-	  Dealing d=new Dealing();
-	  d.deal();
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-}
+		
+	}
 }
