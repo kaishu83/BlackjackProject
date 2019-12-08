@@ -7,11 +7,22 @@ public class BlackjackHand extends Hand {
 
 	@Override
 	public int getHandValue() {
-
+		int aces = hasSoftAce();
 		int totalValue = 0;
 		for (Card card : cardsInHand) {
 			totalValue += card.getValue();
 		}
+//		if (aces == 1 && totalValue > 21) {
+//			totalValue = totalValue - 10;
+//		}
+//
+//		else if (aces == 2 && totalValue - 10 > 21) {
+//			totalValue = totalValue - 20;
+//		} else if (aces == 3 && totalValue - 20 > 21) {
+//			totalValue = totalValue - 30;
+//		} else if (aces == 4 && totalValue - 30 > 21) {
+//			totalValue = totalValue - 40;
+//		}
 		return totalValue;
 	}
 
@@ -29,5 +40,16 @@ public class BlackjackHand extends Hand {
 		if (getHandValue() > 21)
 			return true;
 		return false;
+	}
+
+	public int hasSoftAce() {
+		int a = 0;
+		for (Card card : cardsInHand) {
+			if (card.getValue() == 11) {
+				a++;
+			}
+		}
+
+		return a;
 	}
 }

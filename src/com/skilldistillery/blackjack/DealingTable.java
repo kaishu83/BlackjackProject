@@ -33,9 +33,9 @@ public class DealingTable {
 		dealer.giveCard(dealer);
 		dealer.giveCard(dealer);
 
-		dealer.printSecondCard(dealer);
+		dealer.printFirstCard(dealer);
 
-		System.out.println();
+		showCards();
 
 		playerCurrentHand();
 		if (peter.blackjackHand.isBlackjack()) {
@@ -54,14 +54,16 @@ public class DealingTable {
 				if (!option.equals("H")) {
 					playerValue = peter.blackjackHand.getHandValue();
 					boolean b = dealer.to17(dealer);
+					dealerValue = dealer.blackjackHand.getHandValue();
 					if (b) {
 						dealerFinalCards();
+						System.out.println("Dealer has " + dealerValue);
 						System.out.println("Dealer Busted, you Win!!!!!!!!!!!");
+						break;
 					} else {
 
 						dealerFinalCards();
 
-						dealerValue = dealer.blackjackHand.getHandValue();
 						whoWind(playerValue, dealerValue);
 						break;
 					}
@@ -114,5 +116,14 @@ public class DealingTable {
 		System.out.println("Dealer's cards are: ");
 		System.out.println(dealer.blackjackHand.toString());
 
+	}
+
+	public void showCards() {
+		if (dealer.blackjackHand.showCard().getValue() == 10) {
+			if (dealer.blackjackHand.isBlackjack()) {
+				System.out.println("Dealer got blackjack!!!!!!!!!");
+				System.out.println(dealer.blackjackHand.toString());
+			}
+		}
 	}
 }

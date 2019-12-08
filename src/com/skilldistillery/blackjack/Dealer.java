@@ -11,16 +11,20 @@ public class Dealer extends Player {
 		return deck.dealCard();
 	}
 
-	public void giveCard(Player p) {
-		p.blackjackHand.addCard(drawCard());
+	public Card giveCard(Player p) {
+		Card oneCard = drawCard();
+		p.blackjackHand.addCard(oneCard);
+		return oneCard;
 	}
 
 	public boolean to17(Dealer d) {
-		while (d.blackjackHand.getHandValue() < 17) {
-			d.blackjackHand.addCard(drawCard());
-		}
 
-		if (d.blackjackHand.getHandValue() > 21)
+		int value = d.blackjackHand.getHandValue();
+		while (value < 17) {
+			d.blackjackHand.addCard(drawCard());
+			value = d.blackjackHand.getHandValue();
+		}
+		if (value > 21)
 			return true;
 		return false;
 	}
@@ -30,8 +34,9 @@ public class Dealer extends Player {
 
 	}
 
-	public void printSecondCard(Dealer d) {
-		System.out.println("Dealer's 2nd card is: " + d.blackjackHand.showCard());
+	public Card printFirstCard(Dealer d) {
+		System.out.println("Dealer's 1st card is: " + d.blackjackHand.showCard());
+		return d.blackjackHand.showCard();
 	}
 
 }

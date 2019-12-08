@@ -17,7 +17,7 @@ public abstract class Hand {
 
 	public Card showCard() {
 
-		return cardsInHand.get(1);
+		return cardsInHand.get(0);
 
 	}
 
