@@ -5,7 +5,7 @@ import com.skilldistillery.common.Deck;
 
 public class Dealer extends Player {
 
-	Deck deck = new Deck();
+	private Deck deck;
 
 	public Card drawCard() {
 		return deck.dealCard();
@@ -17,16 +17,15 @@ public class Dealer extends Player {
 		return oneCard;
 	}
 
-	public boolean to17(Dealer d) {
-
+	public void to17(Dealer d) {
+		
 		int value = d.blackjackHand.getHandValue();
+	
 		while (value < 17) {
 			d.blackjackHand.addCard(drawCard());
 			value = d.blackjackHand.getHandValue();
 		}
-		if (value > 21)
-			return true;
-		return false;
+		
 	}
 
 	public void newDeck() {

@@ -20,12 +20,12 @@ public class DealingTable {
 	}
 
 	public void play() {
+
+		System.out.println("Welcome to this table, H17");
 		int playerValue = 0;
 		int dealerValue = 0;
 
-		// dealer.deck.creatDeck();
-
-		Collections.shuffle(dealer.deck.creatDeck());
+		dealer.deck.wash();
 
 		dealer.giveCard(peter);
 		dealer.giveCard(peter);
@@ -41,9 +41,11 @@ public class DealingTable {
 		if (peter.blackjackHand.isBlackjack()) {
 			System.out.println("You had black Jack");
 			if (dealer.blackjackHand.getHandValue() != 21) {
+				dealerFinalCards();
 				System.out.println("You win!!!!!!!!!!!!!!");
 			} else {
-				System.out.println("Draw!!!!!!!!!!!!!!!!!");
+				dealerFinalCards();
+				System.out.println("Wash!!!!!!!!!!!!!!!!!");
 			}
 		} else {
 			String option = "";
@@ -53,9 +55,9 @@ public class DealingTable {
 
 				if (!option.equals("H")) {
 					playerValue = peter.blackjackHand.getHandValue();
-					boolean b = dealer.to17(dealer);
+					dealer.to17(dealer);
 					dealerValue = dealer.blackjackHand.getHandValue();
-					if (b) {
+					if (dealer.blackjackHand.isBust()) {
 						dealerFinalCards();
 						System.out.println("Dealer has " + dealerValue);
 						System.out.println("Dealer Busted, you Win!!!!!!!!!!!");
@@ -71,9 +73,8 @@ public class DealingTable {
 					dealer.giveCard(peter);
 
 					playerCurrentHand();
-					playerValue = peter.blackjackHand.getHandValue();
 
-					if (playerValue > 21) {
+					if (dealer.blackjackHand.isBust()) {
 						System.out.println("You busted, you lose!!!!!!!!!!!!!!");
 						break;
 					}
@@ -94,7 +95,7 @@ public class DealingTable {
 			System.out.println("You lose!!!!!!!!!!!!");
 			return -1;
 		} else {
-			System.out.println("Draw!!!!!!!!!!!!!!!!!");
+			System.out.println("Wash!!!!!!!!!!!!!!!!!");
 			return 0;
 
 		}
@@ -126,4 +127,5 @@ public class DealingTable {
 			}
 		}
 	}
+
 }

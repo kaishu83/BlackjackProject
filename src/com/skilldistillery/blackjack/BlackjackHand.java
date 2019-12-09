@@ -12,17 +12,17 @@ public class BlackjackHand extends Hand {
 		for (Card card : cardsInHand) {
 			totalValue += card.getValue();
 		}
-//		if (aces == 1 && totalValue > 21) {
-//			totalValue = totalValue - 10;
-//		}
-//
-//		else if (aces == 2 && totalValue - 10 > 21) {
-//			totalValue = totalValue - 20;
-//		} else if (aces == 3 && totalValue - 20 > 21) {
-//			totalValue = totalValue - 30;
-//		} else if (aces == 4 && totalValue - 30 > 21) {
-//			totalValue = totalValue - 40;
-//		}
+		if (aces == 1 && totalValue > 21) {
+			totalValue = totalValue - 10;
+		}
+
+		else if (aces == 2 && totalValue - 10 > 21) {
+			totalValue = totalValue - 20;
+		} else if (aces == 3 && totalValue - 20 > 21) {
+			totalValue = totalValue - 30;
+		} else if (aces == 4 && totalValue - 30 > 21) {
+			totalValue = totalValue - 40;
+		}
 		return totalValue;
 	}
 
