@@ -25,7 +25,7 @@ public class DealingTable {
 		int playerValue = 0;
 		int dealerValue = 0;
 
-		dealer.deck.wash();
+		dealer.newDeck();
 
 		dealer.giveCard(peter);
 		dealer.giveCard(peter);
