@@ -4,14 +4,17 @@ import com.skilldistillery.common.Card;
 
 public class Player {
 
-	public String name;
-	BlackjackHand blackjackHand=new BlackjackHand();
+	private int money;
+	BlackjackHand blackjackHand = new BlackjackHand();
 
-	// Dealer dealer = new Dealer();
+	public Player() {
 
-	
+	}
 
+	public Player(int money) {
 
+		this.money = money;
+	}
 
 	public int stay() {
 		return blackjackHand.getHandValue();

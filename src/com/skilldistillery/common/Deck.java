@@ -9,10 +9,9 @@ public class Deck {
 
 	public Deck() {
 		creatDeck();
-		
 	}
 
-	public List<Card> creatDeck() {
+	private List<Card> creatDeck() {
 		for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
 				cardList.add(new Card(s, r));

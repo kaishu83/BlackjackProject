@@ -13,15 +13,16 @@ public class DealingTable {
 	Player peter = new Player();
 	Dealer dealer = new Dealer();
 
-	public static void main(String[] args) {
-		DealingTable dt = new DealingTable();
+//	public static void main(String[] args) {
+//		DealingTable dt = new DealingTable();
+//
+//		dt.play();
+//	}
 
-		dt.play();
-	}
+	public int play() {
 
-	public void play() {
-
-		System.out.println("Welcome to this table, H17");
+		dealer.blackjackHand.clear();
+		peter.blackjackHand.clear();
 		int playerValue = 0;
 		int dealerValue = 0;
 
@@ -42,10 +43,12 @@ public class DealingTable {
 			System.out.println("You had black Jack");
 			if (dealer.blackjackHand.getHandValue() != 21) {
 				dealerFinalCards();
-				System.out.println("You win!!!!!!!!!!!!!!");
+				System.out.println("You win!!!!!!!!!!!!!!\n");
+				return 1;
 			} else {
 				dealerFinalCards();
-				System.out.println("Wash!!!!!!!!!!!!!!!!!");
+				System.out.println("Wash!!!!!!!!!!!!!!!!!\n");
+				return 0;
 			}
 		} else {
 			String option = "";
@@ -60,14 +63,15 @@ public class DealingTable {
 					if (dealer.blackjackHand.isBust()) {
 						dealerFinalCards();
 						System.out.println("Dealer has " + dealerValue);
-						System.out.println("Dealer Busted, you Win!!!!!!!!!!!");
-						break;
+						System.out.println("Dealer Busted, you Win!!!!!!!!!!!\n");
+
+						return 1;
 					} else {
 
 						dealerFinalCards();
 
-						whoWind(playerValue, dealerValue);
-						break;
+						return whoWind(playerValue, dealerValue);
+
 					}
 				} else {
 					dealer.giveCard(peter);
@@ -75,27 +79,30 @@ public class DealingTable {
 					playerCurrentHand();
 
 					if (peter.blackjackHand.isBust()) {
-						System.out.println("You busted, you lose!!!!!!!!!!!!!!");
-						break;
+						System.out.println("You busted, you lose!!!!!!!!!!!!!!\n");
+
+						return -1;
 					}
+
 				}
 			} while (option.equals("H"));
 		}
+		return -100;
 
 	}
 
 	public int whoWind(int playerValue, int dealerValue) {
 		System.out.println("You have " + playerValue + ", and dealer has " + dealerValue);
 		if (playerValue > dealerValue) {
-			System.out.println("You win!!!!!!!!!!!!!");
+			System.out.println("You win!!!!!!!!!!!!!\n");
 			return 1;
 		}
 
 		else if (playerValue < dealerValue) {
-			System.out.println("You lose!!!!!!!!!!!!");
+			System.out.println("You lose!!!!!!!!!!!!\n");
 			return -1;
 		} else {
-			System.out.println("Wash!!!!!!!!!!!!!!!!!");
+			System.out.println("Wash!!!!!!!!!!!!!!!!!\n");
 			return 0;
 
 		}
