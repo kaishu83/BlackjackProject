@@ -36,6 +36,12 @@ public class BlackjackHand extends Hand {
 
 	}
 
+	public Card showCard() {
+
+		return cardsInHand.get(0);
+
+	}
+
 	public boolean isBust() {
 		if (getHandValue() > 21)
 			return true;

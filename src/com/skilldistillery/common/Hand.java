@@ -11,11 +11,7 @@ public abstract class Hand {
 		cardsInHand.add(card);
 	}
 
-	public Card showCard() {
-
-		return cardsInHand.get(0);
-
-	}
+	
 
 	public void clear() {
 		cardsInHand.clear();

@@ -26,7 +26,7 @@ public class DealingTable {
 		int playerValue = 0;
 		int dealerValue = 0;
 
-		dealer.newDeck();
+		dealer.newDeck();	// There's a bug here. In current version, dealer will wash card every time you bet. It won't effect running one round.
 
 		dealer.giveCard(peter);
 		dealer.giveCard(peter);
