@@ -74,7 +74,7 @@ public class DealingTable {
 
 					playerCurrentHand();
 
-					if (dealer.blackjackHand.isBust()) {
+					if (peter.blackjackHand.isBust()) {
 						System.out.println("You busted, you lose!!!!!!!!!!!!!!");
 						break;
 					}
