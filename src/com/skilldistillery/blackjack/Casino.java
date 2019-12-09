@@ -18,14 +18,15 @@ public class Casino {
 		Player p = new Player(money);
 		int bet;
 		do {
-			if (money < 1) {
+			if (money < 5) {
 				System.out.println("You are running out of chips, game over");
 				break;
 			}
 			System.out.println("You currently have " + money);
-			System.out.println("What's your betting for this game, at least 1,enter 0 to quit");
+			System.out.println("What's your betting for this game, at least 5,enter 0 to quit");
 
 			bet = input.nextInt();
+			if(bet==0) break;
 			while (bet > money) {
 				System.out.println("You don't have " + bet + " of chips");
 				bet = input.nextInt();
