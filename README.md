@@ -42,3 +42,6 @@
 		}
 		return totalValue;
 	}
+###  Lesson Learned
+1.	Better understanding of Object Oriented Programing
+2.	Pay attention to folders and packages when I code, don't use other file of same name from different location
