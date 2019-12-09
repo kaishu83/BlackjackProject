@@ -10,7 +10,11 @@
 3.  Using different class such as table deck player dealer and hand to mimic the real game
 
 ### Highlight- The implenment of Strach goal- soft ace
-  #### using the code below to implement soft ace
+  #### Using the code below to set up money system
+	money = money + dt.play() * bet;
+	// dt.play() would return either 1 for win, -1 for lose and 0 for wash.
+
+  #### Using the code below to implement soft ace
   
   	public int hasSoftAce() {
 		int a = 0;
